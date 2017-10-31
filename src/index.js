@@ -1,8 +1,11 @@
-import sum from './sum.js';
+const button = document.createElement('button');
 
-// by importing it here you can just run it
-import './image_viewer.js';
+button.innerText = 'click';
 
-const total = sum(10, 5);
+button.onclick = () => {
+	System.import('./image_viewer').then((module) => {
+		module.default();
+	})
+};
 
-console.log(total);
+document.body.appendChild(button);
